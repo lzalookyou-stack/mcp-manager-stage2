@@ -32,7 +32,7 @@
 
 | 阶段 | 仓库地址 | 提交哈希 | 推送状态 |
 |---|---|---|---|
-| 1 | https://github.com/lzalookyou-stack/mcp-manager-stage1 | `ec27ff3eddf3458302746caefe1a5334ba78928e` | ✅ 已推送（远端 HEAD 已回读核对） |
+| 1 | https://github.com/lzalookyou-stack/mcp-manager-stage1 | 交付提交 `ec27ff3eddf3458302746caefe1a5334ba78928e`；状态回填提交 `806c58c` | ✅ 已推送（远端 `refs/heads/main` 已回读核对） |
 | 2 | （推送后回填） | （推送后回填） | — |
 | 3 | （推送后回填） | （推送后回填） | — |
 | 4 | （推送后回填） | （推送后回填） | — |
