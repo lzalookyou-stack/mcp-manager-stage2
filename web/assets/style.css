@@ -1,0 +1,71 @@
+/* mcp-manager 控制台样式（原生 CSS，无框架） */
+
+:root {
+  --bg: #0f1115;
+  --panel: #171a21;
+  --border: #262b36;
+  --text: #e6e8ee;
+  --muted: #9aa3b2;
+  --accent: #4f8cff;
+  --danger: #ff5c5c;
+  --warn: #ffb454;
+  --ok: #3ddc84;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 0 3rem;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.6 -apple-system, "Segoe UI", "Noto Sans CJK SC", sans-serif;
+}
+
+header, main, footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+header { padding-top: 2rem; }
+
+h1 { margin: 0; font-size: 1.6rem; }
+h2 { font-size: 1.1rem; margin: 0 0 .6rem; }
+
+.subtitle, .hint, footer p { color: var(--muted); font-size: .875rem; }
+.hint { margin: .2rem 0 .8rem; }
+
+.health { font-size: .875rem; color: var(--muted); }
+.health.ok { color: var(--ok); }
+.health.err { color: var(--danger); }
+
+section {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  margin: 1rem 0;
+}
+
+.stats { display: grid; grid-template-columns: 8rem 1fr; gap: .35rem 1rem; margin: 0; }
+.stats dt { color: var(--muted); }
+.stats dd { margin: 0; font-variant-numeric: tabular-nums; }
+
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+th, td { text-align: left; padding: .45rem .5rem; border-bottom: 1px solid var(--border); }
+th { color: var(--muted); font-weight: 600; }
+tbody tr:last-child td { border-bottom: none; }
+
+.empty { color: var(--muted); }
+
+.audit { list-style: none; margin: 0; padding: 0; font-size: .85rem; }
+.audit li { padding: .3rem 0; border-bottom: 1px dashed var(--border); }
+.audit li:last-child { border-bottom: none; }
+.audit .actor { color: var(--accent); }
+.audit .denied { color: var(--warn); }
+.audit .error { color: var(--danger); }
+
+.risk-critical, .risk-high { color: var(--danger); }
+.risk-medium { color: var(--warn); }
+.risk-low, .risk-none { color: var(--muted); }

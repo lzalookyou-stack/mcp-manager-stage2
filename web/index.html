@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
+  <title>mcp-manager 控制台</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <header>
+    <h1>mcp-manager</h1>
+    <p class="subtitle">本地优先的 MCP / Agent 插件管理器 · 阶段 2 骨架</p>
+    <p id="health" class="health">正在检测服务状态…</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>概览</h2>
+      <dl id="stats" class="stats">
+        <dt>条目总数</dt><dd id="stat-total">—</dd>
+        <dt>按类型</dt><dd id="stat-kind">—</dd>
+        <dt>按安装状态</dt><dd id="stat-install">—</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>插件列表</h2>
+      <p class="hint">
+        本阶段为只读视图。安装、审查与回滚将在后续阶段引入，
+        且必须由用户在此页面明确确认。
+      </p>
+      <table id="plugin-table">
+        <thead>
+          <tr>
+            <th>名称</th><th>类型</th><th>风险</th><th>审查</th><th>安装</th><th>评分</th>
+          </tr>
+        </thead>
+        <tbody id="plugin-rows"></tbody>
+      </table>
+      <p id="plugin-empty" class="empty" hidden>暂无已登记条目。</p>
+    </section>
+
+    <section>
+      <h2>审计日志（最近 20 条）</h2>
+      <ul id="audit-list" class="audit"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>仅监听回环地址 · 关闭了 OpenAPI 文档 · 所有结论均标注证据等级</p>
+  </footer>
+
+  <script src="/assets/app.js"></script>
+</body>
+</html>

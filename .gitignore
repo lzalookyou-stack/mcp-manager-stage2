@@ -32,6 +32,7 @@ Thumbs.db
 
 # 运行期数据（本地控制台的状态，不入库）
 data/
+var/
 *.db
 *.sqlite
 *.sqlite3

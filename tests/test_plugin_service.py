@@ -1,0 +1,147 @@
+"""服务层测试：幂等写入、查询、审计、未实现能力必须显式失败。"""
+
+from __future__ import annotations
+
+import pytest
+
+from app.models import InstallStatus, Plugin, PluginKind, RiskLevel
+from app.services import PluginNotFound, PluginService, ValidationError
+
+
+def test_upsert_then_get_roundtrip(service: PluginService):
+    p = Plugin.new(source="github:o/r", slug="s", name="测试插件", kind=PluginKind.MCP_SERVER)
+    service.upsert(p, actor="user")
+
+    got = service.get(p.id)
+    assert got.id == p.id
+    assert got.name == "测试插件"
+
+
+def test_upsert_is_idempotent_by_stable_id(service: PluginService):
+    p1 = Plugin.new(source="github:o/r", slug="s", name="旧名", kind=PluginKind.MCP_SERVER)
+    service.upsert(p1, actor="user")
+    assert service.count() == 1
+
+    p2 = Plugin.new(source="github:o/r", slug="s", name="新名", kind=PluginKind.MCP_SERVER)
+    service.upsert(p2, actor="user")
+    assert service.count() == 1, "同一 (source, slug) 必须复用同一条目"
+    assert service.get(p1.id).name == "新名"
+
+
+def test_get_missing_raises(service: PluginService):
+    with pytest.raises(PluginNotFound):
+        service.get("github:nope/nope:000000000000")
+
+
+def test_list_filters(service: PluginService):
+    service.upsert(
+        Plugin.new(source="github:a/a", slug="one", name="A", kind=PluginKind.MCP_SERVER),
+        actor="user",
+    )
+    service.upsert(
+        Plugin.new(source="github:b/b", slug="two", name="B", kind=PluginKind.SKILL),
+        actor="user",
+    )
+
+    assert len(service.list()) == 2
+    assert len(service.list(kind=PluginKind.SKILL)) == 1
+    assert service.list(kind=PluginKind.SKILL)[0].name == "B"
+    assert len(service.list(risk_level=RiskLevel.HIGH)) == 0
+
+
+def test_list_pagination(service: PluginService):
+    for i in range(5):
+        service.upsert(
+            Plugin.new(
+                source=f"github:o/r{i}",
+                slug=f"s{i}",
+                name=f"P{i}",
+                kind=PluginKind.MCP_SERVER,
+            ),
+            actor="user",
+        )
+    page1 = service.list(limit=2, offset=0)
+    page2 = service.list(limit=2, offset=2)
+    assert len(page1) == 2
+    assert len(page2) == 2
+    assert {p.id for p in page1}.isdisjoint({p.id for p in page2})
+
+
+def test_audit_records_actor_and_outcome(service: PluginService):
+    service.audit(actor="agent", action="probe", outcome="denied", detail="测试")
+    rows = service.list_audit(limit=10)
+    assert rows
+    assert rows[0].actor == "agent"
+    assert rows[0].outcome == "denied"
+
+
+def test_audit_rejects_bad_actor(service: PluginService):
+    with pytest.raises(ValidationError):
+        service.audit(actor="root", action="x")
+    with pytest.raises(ValidationError):
+        service.audit(actor="user", action="x", outcome="maybe")
+
+
+def test_audit_is_written_on_upsert(service: PluginService):
+    p = Plugin.new(source="github:o/r", slug="s", name="N", kind=PluginKind.MCP_SERVER)
+    service.upsert(p, actor="system")
+    rows = service.list_audit()
+    assert any(r.action == "plugin.upsert" and r.target == p.id for r in rows)
+
+
+def test_register_placeholder_is_pending_not_approved(service: PluginService):
+    p = service.register_placeholder(
+        source="github:o/r",
+        slug="newthing",
+        name="新条目",
+        kind=PluginKind.AGENT_PLUGIN,
+        actor="user",
+    )
+    assert p.review_status.value == "pending"
+    assert p.install_status is InstallStatus.NOT_INSTALLED
+
+
+def test_register_placeholder_rejects_bad_slug(service: PluginService):
+    with pytest.raises(Exception):
+        service.register_placeholder(
+            source="github:o/r",
+            slug="../escape",
+            name="坏条目",
+            kind=PluginKind.AGENT_PLUGIN,
+            actor="user",
+        )
+
+
+def test_stats(service: PluginService):
+    service.upsert(
+        Plugin.new(source="github:a/a", slug="one", name="A", kind=PluginKind.MCP_SERVER),
+        actor="user",
+    )
+    stats = service.stats()
+    assert stats["total"] == 1
+    assert stats["by_kind"]["mcp_server"] == 1
+    assert stats["by_install_status"]["not_installed"] == 1
+
+
+@pytest.mark.parametrize(
+    "method,args,kwargs",
+    [
+        ("search_remote", ("query",), {}),
+        ("score", ("some-id",), {}),
+        ("review", ("some-id",), {}),
+        # install / rollback 是 *, actor 关键字签名（刻意设计：必须记录操作者）
+        ("install", ("some-id",), {"actor": "user"}),
+        ("rollback", ("some-id",), {"actor": "user"}),
+    ],
+)
+def test_unimplemented_methods_fail_loudly(
+    service: PluginService, method: str, args: tuple, kwargs: dict
+):
+    """未实现的能力必须抛异常，绝不能返回假的成功结果。"""
+    with pytest.raises(NotImplementedError):
+        getattr(service, method)(*args, **kwargs)
+
+
+def test_install_requires_actor_kwarg(service: PluginService):
+    with pytest.raises(TypeError):
+        service.install("some-id")  # type: ignore[call-arg]
