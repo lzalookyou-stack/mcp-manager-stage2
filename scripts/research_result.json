@@ -1,0 +1,477 @@
+{
+  "generated_at": "2026-10-09T14:00:54Z",
+  "authenticated": true,
+  "count": 6,
+  "repos": [
+    {
+      "repo": "xjeway/mcp-manager",
+      "fetched_at": "2026-10-09T14:00:18Z",
+      "meta": {
+        "full_name": "xjeway/mcp-manager",
+        "html_url": "https://github.com/xjeway/mcp-manager",
+        "description": "A cross-platform desktop app for managing MCP server configs across Claude Code, Codex, Cursor, VS Code, OpenCode, Gemini CLI, and more.",
+        "stars": 8,
+        "forks": 3,
+        "open_issues": 0,
+        "watchers": 0,
+        "language": "Rust",
+        "license": "MIT",
+        "topics": [
+          "ai-tools",
+          "claude-code",
+          "codex",
+          "cross-platform",
+          "cursor",
+          "desktop-app",
+          "developer-tools",
+          "gemini",
+          "mcp",
+          "mcp-server",
+          "mcp-servers",
+          "model-context-protocol",
+          "react",
+          "rust",
+          "tauri",
+          "typescript"
+        ],
+        "created_at": "2026-03-21T06:14:10Z",
+        "updated_at": "2026-10-09T03:43:07Z",
+        "pushed_at": "2026-10-09T03:43:11Z",
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "size_kb": 5229,
+        "has_wiki": false,
+        "homepage": ""
+      },
+      "latest_release": {
+        "tag": "v0.2.0",
+        "name": "MCP Manager v0.2.0",
+        "published_at": "2026-09-30T04:56:48Z",
+        "assets": 31
+      },
+      "latest_commit": {
+        "sha": "c88258fedd5e8cf24ffee0eaa76aa2fb9cec13de",
+        "date": "2026-10-09T03:43:03Z",
+        "message": "Merge pull request #37 from xjeway/dependabot/npm_and_yarn/jsdom-30.1.1"
+      },
+      "root_files": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gitignore",
+        "Cargo.lock",
+        "Cargo.toml",
+        "LICENSE",
+        "Makefile",
+        "README.md",
+        "README.zh-CN.md",
+        "crates",
+        "docs",
+        "index.html",
+        "package-lock.json",
+        "package.json",
+        "plugins",
+        "public",
+        "scripts",
+        "src-tauri",
+        "src",
+        "tsconfig.json",
+        "vite.config.ts"
+      ],
+      "security_relevant_files": [
+        "Makefile",
+        "package.json"
+      ],
+      "languages": {
+        "Rust": 464687,
+        "TypeScript": 356862,
+        "JavaScript": 78066,
+        "CSS": 61051,
+        "Python": 14148,
+        "Makefile": 2571,
+        "HTML": 298
+      },
+      "rate_remaining_after": "4954"
+    },
+    {
+      "repo": "tamb/simple-mcp-manager",
+      "fetched_at": "2026-10-09T14:00:24Z",
+      "meta": {
+        "full_name": "tamb/simple-mcp-manager",
+        "html_url": "https://github.com/tamb/simple-mcp-manager",
+        "description": null,
+        "stars": 0,
+        "forks": 0,
+        "open_issues": 0,
+        "watchers": 0,
+        "language": "JavaScript",
+        "license": null,
+        "topics": [],
+        "created_at": "2026-02-13T22:27:59Z",
+        "updated_at": "2026-06-25T03:57:16Z",
+        "pushed_at": "2026-06-25T03:57:12Z",
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "size_kb": 409,
+        "has_wiki": true,
+        "homepage": null
+      },
+      "latest_release": null,
+      "latest_commit": {
+        "sha": "ce359ed689861b9601e05d437f0dc6072b24915b",
+        "date": "2026-06-25T03:57:09Z",
+        "message": "big improvements"
+      },
+      "root_files": [
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        "CONTRIBUTING.md",
+        "README.md",
+        "assets",
+        "biome.json",
+        "index.js",
+        "package-lock.json",
+        "package.json",
+        "src",
+        "test"
+      ],
+      "security_relevant_files": [
+        "package.json"
+      ],
+      "languages": {
+        "JavaScript": 115645,
+        "CSS": 8271,
+        "HTML": 4023
+      },
+      "rate_remaining_after": "4950"
+    },
+    {
+      "repo": "Bigsy/mcpmu",
+      "fetched_at": "2026-10-09T14:00:30Z",
+      "meta": {
+        "full_name": "Bigsy/mcpmu",
+        "html_url": "https://github.com/Bigsy/mcpmu",
+        "description": "MCP server multiplexer and tool compressor, configure all your MCP's in a single MCP with profiles, both TUI and web UI all while saving valuable context tokens.",
+        "stars": 19,
+        "forks": 2,
+        "open_issues": 0,
+        "watchers": 0,
+        "language": "Go",
+        "license": "MIT",
+        "topics": [
+          "ai-tools",
+          "claude",
+          "claude-code",
+          "codex",
+          "cursor",
+          "developer-tools",
+          "golang",
+          "mcp",
+          "mcp-server",
+          "model-context-protocol",
+          "tui",
+          "windsurf"
+        ],
+        "created_at": "2026-01-24T19:03:36Z",
+        "updated_at": "2026-09-24T21:40:40Z",
+        "pushed_at": "2026-09-25T19:40:39Z",
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "size_kb": 24675,
+        "has_wiki": false,
+        "homepage": "https://mcpmu.bigsy.uk/"
+      },
+      "latest_release": {
+        "tag": "v0.1.35",
+        "name": "v0.1.35",
+        "published_at": "2026-09-25T19:41:57Z",
+        "assets": 5
+      },
+      "latest_commit": {
+        "sha": "4d976d0cd1d2ad84c5a36baeec5932250f5daecc",
+        "date": "2026-09-24T21:40:34Z",
+        "message": "Redesign website with logo watermarks and interactive demos"
+      },
+      "root_files": [
+        ".claude",
+        ".github",
+        ".gitignore",
+        "ARCHITECTURE.md",
+        "LICENSE",
+        "Makefile",
+        "README.md",
+        "cmd",
+        "docs",
+        "go.mod",
+        "go.sum",
+        "internal",
+        "scripts",
+        "site",
+        "testdata"
+      ],
+      "security_relevant_files": [
+        "Makefile"
+      ],
+      "languages": {
+        "Go": 2681862,
+        "HTML": 133571,
+        "CSS": 63134,
+        "Shell": 57384,
+        "JavaScript": 23775,
+        "Python": 21023,
+        "Makefile": 996
+      },
+      "rate_remaining_after": "4946"
+    },
+    {
+      "repo": "agentbridgehq/agentbridge",
+      "fetched_at": "2026-10-09T14:00:36Z",
+      "meta": {
+        "full_name": "agentbridgehq/agentbridge",
+        "html_url": "https://github.com/agentbridgehq/agentbridge",
+        "description": "The supply chain for agent extensions — install an agent plugin into every AI coding assistant, with a lockfile, secrets off disk, and a scanner that reads what a plugin tells your agent to do.",
+        "stars": 0,
+        "forks": 0,
+        "open_issues": 1,
+        "watchers": 0,
+        "language": "Go",
+        "license": "Apache-2.0",
+        "topics": [
+          "agent-plugins",
+          "agent-skills",
+          "ai-agents",
+          "claude-code",
+          "cli",
+          "cursor",
+          "developer-tools",
+          "go",
+          "mcp",
+          "supply-chain-security"
+        ],
+        "created_at": "2026-08-25T12:14:57Z",
+        "updated_at": "2026-09-10T12:59:30Z",
+        "pushed_at": "2026-09-10T12:58:05Z",
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "size_kb": 4615,
+        "has_wiki": false,
+        "homepage": "https://agentbridgehq.github.io/agentbridge/"
+      },
+      "latest_release": {
+        "tag": "v0.2.0",
+        "name": "v0.2.0",
+        "published_at": "2026-08-31T06:19:24Z",
+        "assets": 15
+      },
+      "latest_commit": {
+        "sha": "a2fcabd39d9d08ba0807a414646c38821c5bb239",
+        "date": "2026-09-10T12:57:57Z",
+        "message": "fix: five bugs found by hunting rather than by waiting"
+      },
+      "root_files": [
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".goreleaser.yaml",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "MVP.md",
+        "Makefile",
+        "NOTICE",
+        "README.md",
+        "RELEASING.md",
+        "SECURITY.md",
+        "TESTING.md",
+        "action.yml",
+        "assets",
+        "cmd",
+        "conformance",
+        "contrib",
+        "docs",
+        "go.mod",
+        "go.sum",
+        "install.sh",
+        "internal",
+        "npm",
+        "testing"
+      ],
+      "security_relevant_files": [
+        "Makefile",
+        "install.sh"
+      ],
+      "languages": {
+        "Go": 1063935,
+        "JavaScript": 11833,
+        "Shell": 7248,
+        "TypeScript": 1556,
+        "Makefile": 1478
+      },
+      "rate_remaining_after": "4942"
+    },
+    {
+      "repo": "modelcontextprotocol/registry",
+      "fetched_at": "2026-10-09T14:00:41Z",
+      "meta": {
+        "full_name": "modelcontextprotocol/registry",
+        "html_url": "https://github.com/modelcontextprotocol/registry",
+        "description": "A community driven registry service for Model Context Protocol (MCP) servers.",
+        "stars": 7331,
+        "forks": 1026,
+        "open_issues": 173,
+        "watchers": 83,
+        "language": "Go",
+        "license": "NOASSERTION",
+        "topics": [
+          "mcp",
+          "mcp-servers"
+        ],
+        "created_at": "2025-02-05T17:58:01Z",
+        "updated_at": "2026-10-09T02:12:43Z",
+        "pushed_at": "2026-10-08T10:18:38Z",
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "size_kb": 78036,
+        "has_wiki": false,
+        "homepage": "https://github.com/modelcontextprotocol/registry/tree/main/docs"
+      },
+      "latest_release": {
+        "tag": "v1.8.1",
+        "name": "v1.8.1",
+        "published_at": "2026-08-06T23:35:18Z",
+        "assets": 39
+      },
+      "latest_commit": {
+        "sha": "970df037919faa70456dde08c295473002d850e5",
+        "date": "2026-10-08T10:18:35Z",
+        "message": "build(deps): bump anchore/sbom-action from 0.24.2 to 0.24.3 in the github-actions group (#1697)"
+      },
+      "root_files": [
+        ".env.example",
+        ".githooks",
+        ".github",
+        ".gitignore",
+        ".golangci.yml",
+        ".goreleaser.yaml",
+        ".ko.dockerignore",
+        ".ko.yaml",
+        ".vscode",
+        "CLAUDE.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "Makefile",
+        "README.md",
+        "SECURITY.md",
+        "cmd",
+        "data",
+        "deploy",
+        "docker-compose.yml",
+        "docs",
+        "go.mod",
+        "go.sum",
+        "internal",
+        "pkg",
+        "scripts",
+        "tests",
+        "tools"
+      ],
+      "security_relevant_files": [
+        "Makefile",
+        "docker-compose.yml"
+      ],
+      "languages": {
+        "Go": 1194147,
+        "PLpgSQL": 39473,
+        "HTML": 25681,
+        "Shell": 20591,
+        "Makefile": 6456
+      },
+      "rate_remaining_after": "4938"
+    },
+    {
+      "repo": "modelcontextprotocol/python-sdk",
+      "fetched_at": "2026-10-09T14:00:48Z",
+      "meta": {
+        "full_name": "modelcontextprotocol/python-sdk",
+        "html_url": "https://github.com/modelcontextprotocol/python-sdk",
+        "description": "The official Python SDK for Model Context Protocol servers and clients",
+        "stars": 24522,
+        "forks": 4024,
+        "open_issues": 356,
+        "watchers": 176,
+        "language": "Python",
+        "license": "MIT",
+        "topics": [
+          "mcp",
+          "mcp-client",
+          "mcp-server",
+          "python"
+        ],
+        "created_at": "2024-09-24T21:01:35Z",
+        "updated_at": "2026-10-09T13:08:31Z",
+        "pushed_at": "2026-10-05T13:26:06Z",
+        "archived": false,
+        "disabled": false,
+        "default_branch": "main",
+        "size_kb": 18067,
+        "has_wiki": false,
+        "homepage": "https://py.sdk.modelcontextprotocol.io/"
+      },
+      "latest_release": {
+        "tag": "v2.3.0",
+        "name": "v2.3.0",
+        "published_at": "2026-10-02T22:02:27Z",
+        "assets": 0
+      },
+      "latest_commit": {
+        "sha": "91941ed4d3985d59def99e090baa3f880c626cc8",
+        "date": "2026-10-05T13:22:35Z",
+        "message": "Bump pyjwt from 2.13.0 to 2.15.0 (#3608)"
+      },
+      "root_files": [
+        ".claude",
+        ".git-blame-ignore-revs",
+        ".gitattributes",
+        ".github",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "DEPENDENCY_POLICY.md",
+        "LICENSE",
+        "README.md",
+        "RELEASE.md",
+        "ROADMAP.md",
+        "SECURITY.md",
+        "VERSIONING.md",
+        "docs",
+        "docs_src",
+        "examples",
+        "i18n",
+        "mkdocs.yml",
+        "pyproject.toml",
+        "schema",
+        "scripts",
+        "src",
+        "tests",
+        "uv.lock"
+      ],
+      "security_relevant_files": [
+        "pyproject.toml"
+      ],
+      "languages": {
+        "Python": 5684701,
+        "Shell": 8626,
+        "HTML": 76
+      },
+      "rate_remaining_after": "4934"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# Tests / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 运行期数据（本地控制台的状态，不入库）
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# 本地密钥与令牌
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# 阶段 1 调研的原始快照（体积小、可复现，故保留在仓库中；
+# 若后续数据变大可取消下面的注释）
+# scripts/research_result.json
